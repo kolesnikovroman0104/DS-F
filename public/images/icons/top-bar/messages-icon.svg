@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="22px" viewBox="0 0 24 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>message btn</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-0.7%" y="-1.0%" width="101.1%" height="101.9%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.097826087 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="мои-заявки" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-1270.000000, -31.000000)" fill-opacity="0.5">
+        <g id="menubar" filter="url(#filter-1)" transform="translate(-1.000000, -5.000000)" fill="#000000" fill-rule="nonzero">
+            <g id="bar">
+                <g id="message-btn" transform="translate(1275.000000, 40.555556)">
+                    <path d="M8,13.3333333 C7.867,13.314023 7.738,13.2841379 7.644,13.1958621 L5.329,11.0344828 L1.2495,11.0344828 C0.5605,11.0344828 0,10.5190805 0,9.88597701 L0,1.14896552 C0,0.515402299 0.5605,0 1.2495,0 L14.751,0 C15.4395,0 16,0.515402299 16,1.14896552 L16,9.88597701 C16,10.5190805 15.4395,11.0344828 14.751,11.0344828 L10.707,11.0344828 L8.3535,13.1986207 C8.26,13.2850575 8.1325,13.3333333 8,13.3333333 Z M1.2495,0.91954023 C1.112,0.91954023 1,1.02252874 1,1.14896552 L1,9.88597701 C1,10.011954 1.112,10.1149425 1.2495,10.1149425 L5.5385,10.1149425 C5.6725,10.1149425 5.8005,10.1641379 5.8945,10.2524138 L8.0025,12.2206897 L10.1465,10.2496552 C10.24,10.1632184 10.367,10.1149425 10.5,10.1149425 L14.751,10.1149425 C14.888,10.1149425 15,10.011954 15,9.88597701 L15,1.14896552 C15,1.02252874 14.888,0.91954023 14.751,0.91954023 L1.2495,0.91954023 Z" id="Shape"></path>
+                    <path d="M13.5,4.44444444 L3.5,4.44444444 C3.224,4.44444444 3,4.24533333 3,4 C3,3.75466667 3.224,3.55555556 3.5,3.55555556 L13.5,3.55555556 C13.7765,3.55555556 14,3.75466667 14,4 C14,4.24533333 13.7765,4.44444444 13.5,4.44444444 Z" id="Shape"></path>
+                    <path d="M13.5,6.22222222 L3.5,6.22222222 C3.224,6.22222222 3,6.02311111 3,5.77777778 C3,5.53244444 3.224,5.33333333 3.5,5.33333333 L13.5,5.33333333 C13.7765,5.33333333 14,5.53244444 14,5.77777778 C14,6.02311111 13.7765,6.22222222 13.5,6.22222222 Z" id="Shape"></path>
+                    <path d="M8.5,8 L3.5,8 C3.224,8 3,7.80088889 3,7.55555556 C3,7.31022222 3.224,7.11111111 3.5,7.11111111 L8.5,7.11111111 C8.776,7.11111111 9,7.31022222 9,7.55555556 C9,7.80088889 8.776,8 8.5,8 Z" id="Shape"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

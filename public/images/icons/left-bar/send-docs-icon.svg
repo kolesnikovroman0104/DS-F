@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="26px" height="20px" viewBox="0 0 26 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>Shape</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="мои-заявки" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-36.000000, -249.000000)" fill-opacity="0.5">
+        <g id="Group-3" transform="translate(11.000000, 105.000000)" fill="#000000" fill-rule="nonzero">
+            <g id="ico" transform="translate(25.000000, 71.000000)">
+                <path d="M25.2876712,73 L0.712328767,73 C0.320547945,73 0,73.3529412 0,73.7843137 L0,92.2156863 C0,92.6470588 0.320547945,93 0.712328767,93 L25.2876712,93 C25.6794521,93 26,92.6470588 26,92.2156863 L26,73.7843137 C26,73.3529412 25.6794521,73 25.2876712,73 Z M23.3287671,74.7647059 L13,81.9411765 L2.67123288,74.7647059 L23.3287671,74.7647059 Z M1.42465753,91.4313725 L1.42465753,75.627451 L12.5013699,83.5882353 C12.6438356,83.7058824 12.8219178,83.7843137 13,83.7843137 C13.1780822,83.7843137 13.3561644,83.7058824 13.4986301,83.5882353 L24.5753425,75.627451 L24.5753425,91.4313725 L1.42465753,91.4313725 Z" id="Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>

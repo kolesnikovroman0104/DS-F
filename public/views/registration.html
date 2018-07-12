@@ -1,0 +1,59 @@
+<a class="logo logo-auth" href="https://lk.delsfera.org"><img src="/images/logo.png" alt=""></a>
+<div class="col-md-6 auth-left-side no-padding">
+    <div class="filter"></div>
+</div>
+<div class="col-md-6 auth-block" ng-controller="RegistrationCtrl">
+    <div class="col-md-12 auth-inner">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="col-md-12 margin-bottom">
+                <h2>Регистрация в личном кабинете</h2>
+            </div>
+            <div class="col-md-4">
+                Заполните следующие поля для регистрации:
+            </div>
+            <div class="col-md-8">
+                <div class="col-md-12">
+                    <ul>
+                        <li ng-repeat="error in errors"><span class="label label-danger">{{ error }}</span></li>
+                    </ul>
+                    <span class="label label-success" ng-if="success">Регистрация произведена успешно.<br>На Вашу почту отправлено письмо активации.</span>
+                </div>
+                <div class="col-md-8 input-group margin-bottom">
+                    <input class="form-control" ng-model="registrationData.company_name" placeholder="Название компании или ИНН" required="" autofocus="" type="text">
+                </div>
+                <div class="col-md-8 input-group margin-bottom">
+                    <input class="form-control" ng-model="registrationData.first_name" placeholder="Имя сотрудника/г.д." required="" autofocus="" type="text">
+                </div>
+                <div class="col-md-8 input-group margin-bottom">
+                    <input class="form-control" ng-model="registrationData.last_name" placeholder="Фамилия сотрудника/г.д." required="" autofocus="" type="text">
+                </div>
+                <div class="col-md-8 input-group margin-bottom">
+                    <input class="form-control" ng-model="registrationData.phone" placeholder="Номер телефона" required="" autofocus="" type="text">
+                </div>
+                <div class="col-md-8 input-group margin-bottom">
+                    <input class="form-control" ng-model="registrationData.email" placeholder="Email для входа" required="" autofocus="" type="text">
+                </div>
+                <div class="col-md-8 input-group margin-bottom">
+                    <input class="form-control" ng-model="registrationData.email_fns" placeholder="Email для ФНС" required="" autofocus="" type="text">
+                </div>
+                <div class="col-md-8 input-group margin-bottom">
+                    <input class="form-control" ng-model="registrationData.password" placeholder="Пароль" required="" type="password">
+                </div>
+                <div class="col-md-8 input-group margin-bottom">
+                    <input class="form-control" ng-model="registrationData.password_confirmation" placeholder="Подтвердите пароль" required="" type="password">
+                </div>
+                <button class="btn btn-primary auth-btn margin-bottom" ng-click="register()">Зарегистрироваться</button>
+            </div>
+        </div>
+        <div class="border-top col-md-12 margin-top margin-bottom">
+        </div>
+        <div class="col-md-10 col-md-offset-1">
+            <div class="col-md-4 margin-top">
+                Есть аккаунт?
+            </div>
+            <div class="col-md-8 margin-top">
+                <a ng-href="./#!/login"><button class="btn btn-primary auth-btn">Войти</button></a>
+            </div>
+        </div>
+    </div>
+</div>

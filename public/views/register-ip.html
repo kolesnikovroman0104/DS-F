@@ -1,0 +1,479 @@
+<div class="container">
+    <div class="row">
+        <ngInclude ng-include="'/views/includes/top-bar.html'"></ngInclude>
+        <ngInclude ng-include="'/views/includes/left-menu.html'"></ngInclude>
+        <div class="col-md-9">
+            <div id="order-form">
+                <!-- начало формы -->
+                <div class="col-md-12 text-center">
+                    <h3>Шаг <span ng-bind="tabsServiceObject.currentStep"></span> из <span ng-bind="tabsServiceObject.totalAvailableCount"></span></h3>
+                </div>
+
+                <div class="col-md-12" id="formTabs">
+                    <div ng-show="tabsServiceObject.tabs[0].active">
+                        <div class="col-md-6">
+                            <div class="form-group col-md-12">
+                                <div class="input-group">
+                                    <div class="input-group-addon">Выберите пакет</div>
+                                    <select class="form-control input-xxlarge">
+                                        <option selected="" value="1">ИП Старт</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <h3>Стоимость: <span>2500</span><span class="glyphicon glyphicon-rub"></span></h3>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <h4 class="green text-center">Для начала заполнения:</h4>
+                            </div>
+                            <div class="form-group col-md-12">
+                                Прочитайте <a target="_blank" href="././assig/assigment.doc">соглашение на обработку персональных данных.</a>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <div class="input-group">
+                                    <div class="form-control input-xxlarge radiobut">
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="1" ng-model="formData.assigment">&nbsp;</label>
+                                    </div>
+                                    <div class="input-group-addon">
+                                        Я согласен и ознакомлен, начинаю заполнять!
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <p>
+                                В данный пакет включено:
+                            </p>
+                            <ul class="list-group">
+                                <li class="list-group-item">Подготовка и дистанционная подача документов для регистрации юридического лица <span class="glyphicon glyphicon-ok"></span></li>
+                                <li class="list-group-item">Проверка сформированного пакета документов нашим юристом <span class="glyphicon glyphicon-ok"></span></li>
+                                <li class="list-group-item">Открытие расчетного счета <span class="glyphicon glyphicon-ok"></span></li>
+                                <li class="list-group-item">Подбор бухгалтера/подключение интернет-бухгалтерии "Мое дело" <span class="glyphicon glyphicon-ok"></span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div ng-show="tabsServiceObject.tabs[1].active">
+                        <h4 class="text-center">Информация об индивидуальном предпринимателе</h4>
+                        <div class="col-md-12" style="height: 20px;"></div>
+                        <div class="form-group col-md-3">
+                            <div class="input-group">
+                                <div class="input-group-addon">Фамилия</div>
+                                <input type="text" ng-model="formData.individuals[0].surname" required="" class="form-control input-xxlarge" placeholder="Фамилия">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <div class="input-group">
+                                <div class="input-group-addon">Имя</div>
+                                <input type="text" ng-model="formData.individuals[0].name" required="" class="form-control input-xxlarge" placeholder="Имя">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <div class="input-group">
+                                <div class="input-group-addon">Отчество</div>
+                                <input type="text" ng-model="formData.individuals[0].patronymic" class="form-control input-xxlarge" placeholder="Отчество">
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-3" >
+                            <div class="input-group">
+                                <div class="input-group-addon">Пол</div>
+                                <select ng-model="formData.individuals[0].gender" required="" class="form-control input-xxlarge">
+                                    <option value="1">М</option>
+                                    <option value="2">Ж</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <div class="input-group">
+                                <div class="input-group-addon">Место рождения</div>
+                                <input type="text" ng-model="formData.individuals[0].birthPlace" required="" class="form-control input-xxlarge" placeholder="Так же как в паспорте">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <div class="input-group">
+                                <div class="input-group-addon">Дата рождения</div>
+                                <input type="text" ng-model="formData.individuals[0].birthDate" required="" class="form-control input-xxlarge hasDatepicker" placeholder="08.04.1979">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-8">
+                            <div class="input-group">
+                                <div class="input-group-addon">Гражданство</div>
+                                <select ng-model="formData.individuals[0].citizenship" required="" class="form-control input-xxlarge">
+                                    <option selected="" value="1">Российская Федерация</option>
+                                    <option value="2">Иностранный гражданин</option>
+                                    <option value="3">Лицо без гражданства</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div id="citizenshipb" style="display:none;">
+                            <div class="form-group col-md-12">
+                                <div class="input-group">
+                                    <div class="input-group-addon">Страна, в которой получено гражданство</div>
+                                    <select id="citizenship" name="citizenship" required="" class="form-control input-xxlarge">
+
+                                        <option value="004">АФГАНИСТАН Переходное Исламское Государство Афганистан AF AFG</option><option value="008">АЛБАНИЯ Республика Албания AL ALB</option><option value="010">АНТАРКТИДА AQ ATA</option><option value="012">АЛЖИР Алжирская Народная Демократическая Республика DZ DZA</option><option value="016">АМЕРИКАНСКОЕ САМОА AS ASM</option><option value="020">АНДОРРА Княжество Андорра AD AND</option><option value="024">АНГОЛА Республика Ангола AO AGO</option><option value="028">АНТИГУА И БАРБУДА AG ATG</option><option value="031">АЗЕРБАЙДЖАН Республика Азербайджан AZ AZE</option><option value="032">АРГЕНТИНА Аргентинская Республика AR ARG</option><option value="036">АВСТРАЛИЯ AU AUS</option><option value="040">АВСТРИЯ Австрийская Республика AT AUT</option><option value="044">БАГАМЫ Содружество Багамы BS BHS</option><option value="048">БАХРЕЙН Королевство Бахрейн BH BHR</option><option value="050">БАНГЛАДЕШ Народная Республика Бангладеш BD BGD</option><option value="051">АРМЕНИЯ Республика Армения AM ARM</option><option value="052">БАРБАДОС BB BRB</option><option value="056">БЕЛЬГИЯ Королевство Бельгии BE BEL</option><option value="060">БЕРМУДЫ BM BMU</option><option value="064">БУТАН Королевство Бутан BT BTN</option><option value="068">БОЛИВИЯ МНОГОНАЦИОНАЛЬНОЕ ГОСУДАРСТВО Многонациональное Государство Боли,вия BO BOL</option><option value="070">БОСНИЯ И ГЕРЦЕГОВИНА BA BIH</option><option value="072">БОТСВАНА Республика Ботсвана BW BWA</option><option value="074">ОСТРОВ БУВЕ BV BVT</option><option value="076">БРАЗИЛИЯ Федеративная Республика Бразилия BR BRA</option><option value="084">БЕЛИЗ BZ BLZ</option><option value="086">БРИТАНСКАЯ ТЕРРИТОРИЯ В ИНДИЙСКОМ ОКЕАНЕ IO IOT</option><option value="090">СОЛОМОНОВЫ ОСТРОВА SB SLB</option><option value="092">ВИРГИНСКИЕ ОСТРОВА БРИТАНСКИЕ Британские Виргинские острова VG VGB</option><option value="096">БРУНЕЙ-ДАРУССАЛАМ BN BRN</option><option value="100">БОЛГАРИЯ Республика Болгария BG BGR</option><option value="104">МЬЯНМА Республика Союза Мьянма MM MMR</option><option value="108">БУРУНДИ Республика Бурунди BI BDI</option><option value="112">БЕЛАРУСЬ Республика Беларусь BY BLR</option><option value="116">КАМБОДЖА Королевство Камбоджа KH KHM</option><option value="120">КАМЕРУН Республика Камерун CM CMR</option><option value="124">КАНАДА CA CAN</option><option value="132">КАБО-ВЕРДЕ Республика Кабо-Верде CV CPV</option><option value="136">ОСТРОВА КАЙМАН KY CYM</option><option value="140">ЦЕНТРАЛЬНО-АФРИКАНСКАЯ РЕСПУБЛИКА CF CAF</option><option value="144">ШРИ-ЛАНКА Демократическая Социалистическая Республика Шри-Ланка LK LKA</option><option value="148">ЧАД Республика Чад TD TCD</option><option value="152">ЧИЛИ Республика Чили CL CHL</option><option value="156">КИТАЙ Китайская Народная Республика CN CHN</option><option value="158">ТАЙВАНЬ (КИТАЙ) TW TWN</option><option value="162">ОСТРОВ РОЖДЕСТВА CX CXR</option><option value="166">КОКОСОВЫЕ (КИЛИНГ) ОСТРОВА CC CCK</option><option value="170">КОЛУМБИЯ Республика Колумбия CO COL</option><option value="174">КОМОРЫ Союз Коморы KM COM</option><option value="175">МАЙОТТА YT MYT</option><option value="178">КОНГО Республика Конго CG COG</option><option value="180">КОНГО ДЕМОКРАТИЧЕСКАЯ РЕСПУБЛИКА Демократическая Республика Конго CD COD</option><option value="184">ОСТРОВА КУКА CK COK</option><option value="188">КОСТА-РИКА Республика Коста-Рика CR CRI</option><option value="191">ХОРВАТИЯ Республика Хорватия HR HRV</option><option value="192">КУБА Республика Куба CU CUB</option><option value="196">КИПР Республика Кипр CY CYP</option><option value="203">ЧЕШСКАЯ РЕСПУБЛИКА CZ CZE</option><option value="204">БЕНИН Республика Бенин BJ BEN</option><option value="208">ДАНИЯ Королевство Дания DK DNK</option><option value="212">ДОМИНИКА Содружество Доминики DM DMA</option><option value="214">ДОМИНИКАНСКАЯ РЕСПУБЛИКА DO DOM</option><option value="218">ЭКВАДОР Республика Эквадор EC ECU</option><option value="222">ЭЛЬ-САЛЬВАДОР Республика Эль-Сальвадор SV SLV</option><option value="226">ЭКВАТОРИАЛЬНАЯ ГВИНЕЯ Республика Экваториальная Гвинея GQ GNQ</option><option value="2,31">ЭФИОПИЯ Федеративная Демократическая Республика Эфиопия ET ETH</option><option value="232">ЭРИТРЕЯ Государство Эритрея ER ERI</option><option value="233">ЭСТОНИЯ Эстонская Республика EE EST</option><option value="234">ФАРЕРСКИЕ ОСТРОВА FO FRO</option><option value="238">ФОЛКЛЕНДСКИЕ ОСТРОВА (МАЛЬВИНСКИЕ) FK FLK</option><option value="239">ЮЖНАЯ ДЖОРДЖИЯ И ЮЖНЫЕ САНДВИЧЕВЫ ОСТРОВА GS SGS</option><option value="242">ФИДЖИ Республика Фиджи FJ FJI</option><option value="246">ФИНЛЯНДИЯ Финляндская Республика FI FIN</option><option value="248">ЭЛАНДСКИЕ ОСТРОВА АХ ALA</option><option value="250">ФРАНЦИЯ Французская Республика FR FRA</option><option value="254">ФРАНЦУЗСКАЯ ГВИАНА GF GUF</option><option value="258">ФРАНЦУЗСКАЯ ПОЛИНЕЗИЯ PF PYF</option><option value="260">ФРАНЦУЗСКИЕ ЮЖНЫЕ ТЕРРИТОРИИ TF ATF</option><option value="262">ДЖИБУТИ Республика Джибути DJ DJI</option><option value="266">ГАБОН Габонская Республика GA GAB</option><option value="268">ГРУЗИЯ GE GEO</option><option value="270">ГАМБИЯ Республика Гамбия GM GMB</option><option value="275">ПАЛЕСТИНА ГОСУДАРСТВО Государство Палестина PS PSE</option><option value="276">ГЕРМАНИЯ Федеративная Республика Германия DE DEU</option><option value="288">ГАНА Республика Гана GH GHA</option><option value="292">ГИБРАЛТАР GI GIB</option><option value="296">КИРИБАТИ Республика Кирибати KI KIR</option><option value="300">ГРЕЦИЯ Греческая Республика GR GRC</option><option value="304">ГРЕНЛАНДИЯ GL GRL</option><option value="308">ГРЕНАДА GD GRD</option><option value="312">ГВАДЕЛУПА GP GLP</option><option value="316">ГУАМ GU GUM</option><option value="320">ГВАТЕМАЛА Республика Гватемала GT GTM</option><option value="324">ГВИНЕЯ Гвинейская Республика GN GIN</option><option value="328">ГАЙАНА Республика Гайана GY GUY</option><option value="332">ГАИТИ Республика Гаити HT HTI</option><option value="334">ОСТРОВ ХЕРД И ОСТРОВА МАКДОНАЛЬД HM HMD</option><option value="336">ПАПСКИЙ ПРЕСТОЛ (ГОСУДАРСТВО - ГОРОД ВАТИКАН) VA VAT</option><option value="340">ГОНДУРАС Республика Гондурас HN HND</option><option value="344">ГОНКОНГ Специальный административный регион Китая Гонконг HK HKG</option><option value="348">ВЕНГРИЯ Венгрия HU HUN</option><option value="352">ИСЛАНДИЯ Республика Исландия IS ISL</option><option value="356">ИНДИЯ Республика Индия IN IND</option><option value="360">ИНДОНЕЗИЯ Республика Индонезия ID IDN</option><option value="364">ИРАН ИСЛАМСКАЯ РЕСПУБЛИКА Исламская Республика Иран IR IRN</option><option value="368">ИРАК Республика Ирак IQ IRQ</option><option value="372">ИРЛАНДИЯ IE IRL</option><option value="376">ИЗРАИЛЬ Государство Израиль IL ISR</option><option value="380">ИТАЛИЯ Итальянская Республика IT ITA</option><option value="384">КОТ ДИВУАР Республика Кот дИвуар CI CIV</option><option value="388">ЯМАЙКА JM JAM</option><option value="392">ЯПОНИЯ JP JPN</option><option value="398">КАЗАХСТАН Республика Казахстан KZ KAZ</option><option value="400">ИОРДАНИЯ Иорданское Хашимитское Королевство JO JOR</option><option value="404">КЕНИЯ Республика Кения KE KEN</option><option value="408">КОРЕЯ НАРОДНО-ДЕМОКРАТИЧЕСКАЯ РЕСПУБЛИКА Корейская Народно-Демократическая Республика KP PRK</option><option value="410">КОРЕЯ РЕСПУБЛИКА Республика Корея KR KOR</option><option value="414">КУВЕЙТ Государство Кувейт KW KWT</option><option value="417">КИРГИЗИЯ Киргизская Республика KG KGZ</option><option value="418">ЛАОССКАЯ НАРОДНО-ДЕМОКРАТИЧЕСКАЯ РЕСПУБЛИКА LA LAO</option><option value="422">ЛИВАН Ливанская Республика LB LBN</option><option value="426">ЛЕСОТО Королевство Лесото LS LSO</option><option value="428">ЛАТВИЯ Латвийская Республика LV LVA</option><option value="430">ЛИБЕРИЯ Республика Либерия LR LBR</option><option value="434">ЛИВИЯ Ливия LY LBY</option><option value="438">ЛИХТЕНШТЕЙН Княжество Лихтенштейн LI LIE</option><option value="440">ЛИТВА Литовская Республика LT LTU</option><option value="442">ЛЮКСЕМБУРГ Великое Герцогство Люксембург LU LUX</option><option value="446">МАКАО Специальный административный регион Китая Макао MO MAC</option><option value="450">МАДАГАСКАР Республика Мадагаскар MG MDG</option><option value="454">МАЛАВИ Республика Малави MW MWI</option><option value="458">МАЛАЙЗИЯ MY MYS</option><option value="462">МАЛЬДИВЫ Мальдивская Республика MV MDV</option><option value="466">МАЛИ Республика Мали ML MLI</option><option value="470">МАЛЬТА Республика Мальта MT MLT</option><option value="474">МАРТИНИКА MQ MTQ</option><option value="478">МАВРИТАНИЯ Исламская Республика Мавритания MR MRT</option><option value="480">МАВРИКИЙ Республика Маврикий MU MUS</option><option value="484">МЕКСИКА Мексиканские Соединенные Штаты MX MEX</option><option value="492">МОНАКО Княжество Монако MC MCO</option><option value="496">МОНГОЛИЯ MN MNG</option><option value="498">МОЛДОВА РЕСПУБЛИКА Республика Молдова MD MDA</option><option value="499">ЧЕРНОГОРИЯ ME MNE</option><option value="500">МОНТСЕРРАТ MS MSR</option><option value="504">МАРОККО Королевство Марокко MA MAR</option><option value="508">МОЗАМБИК Республика Мозамбик MZ MOZ</option><option value="512">ОМАН Султанат Оман OM OMN</option><option value="516">НАМИБИЯ Республика Намибия NA NAM</option><option value="520">НАУРУ Республика Науру NR NRU</option><option value="524">НЕПАЛ Федеративная Демократическая Республика Непал NP NPL</option><option value="528">НИДЕРЛАНДЫ Королевство Нидерландов NL NLD</option><option value="531">КЮРАСАО CW CUW</option><option value="533">АРУБА AW ABW</option><option value="534">СЕН-МАРТЕН (нидерландская часть) SX SXM</option><option value="535">БОНЭЙР СИНТ-ЭСТАТИУС И САБА BQ BES</option><option value="540">НОВАЯ КАЛЕДОНИЯ NC NCL</option><option value="548">ВАНУАТУ Республика Вануату VU VUT</option><option value="554">НОВАЯ ЗЕЛАНДИЯ NZ NZL</option><option value="558">НИКАРАГУА Республика Никарагуа NI NIC</option><option value="562">НИГЕР Республика Нигер NE NER</option><option value="566">НИГЕРИЯ Федеративная Республика Нигерия NG NGA</option><option value="570">НИУЭ Республика Ниуэ NU NIU</option><option value="574">ОСТРОВ НОРФОЛК NF NFK</option><option value="578">НОРВЕГИЯ Королевство Норвегия NO NOR</option><option value="580">СЕВЕРНЫЕ МАРИАНСКИЕ ОСТРОВА Содружество Северных Марианских островов MP, MNP</option><option value="5,81">МАЛЫЕ ТИХООКЕАНСКИЕ ОТДАЛЕННЫЕ ОСТРОВА СОЕДИНЕННЫХ ШТАТОВ UM UMI</option><option value="583">МИКРОНЕЗИЯ ФЕДЕРАТИВНЫЕ ШТАТЫ Федеративные штаты Микронезии FM FSM</option><option value="584">МАРШАЛЛОВЫ ОСТРОВА Республика Маршалловы Острова MH MHL</option><option value="585">ПАЛАУ Республика Палау PW PLW</option><option value="586">ПАКИСТАН Исламская Республика Пакистан PK PAK</option><option value="591">ПАНАМА Республика Панама PA PAN</option><option value="598">ПАПУА-НОВАЯ ГВИНЕЯ Независимое Государство Папуа Новая Гвинея PG PNG</option><option value="600">ПАРАГВАЙ Республика Парагвай PY PRY</option><option value="604">ПЕРУ Республика Перу PE PER</option><option value="608">ФИЛИППИНЫ Республика Филиппины PH PHL</option><option value="612">ПИТКЕРН PN PCN</option><option value="616">ПОЛЬША Республика Польша PL POL</option><option value="620">ПОРТУГАЛИЯ Португальская Республика PT PRT</option><option value="624">ГВИНЕЯ-БИСАУ Республика Гвинея-Бисау GW GNB</option><option value="626">ТИМОР-ЛЕСТЕ Демократическая Республика Тимор-Лесте TL TLS</option><option value="630">ПУЭРТО-РИКО PR PRI</option><option value="634">КАТАР Государство Катар QA QAT</option><option value="638">РЕЮНЬОН RE REU</option><option value="642">РУМЫНИЯ RO ROU</option><option value="643">РОССИЯ Российская Федерация RU RUS</option><option value="646">РУАНДА Руандийская Республика RW RWA</option><option value="652">СЕН-БАРТЕЛЕМИ BL BLM</option><option value="654">СВЯТАЯ ЕЛЕНА ОСТРОВ ВОЗНЕСЕНИЯ ТРИСТАН-ДА-КУНЬЯ SH SHN</option><option value="659">СЕНТ-КИТС И НЕВИС KN KNA</option><option value="660">АНГИЛЬЯ AI AIA</option><option value="662">СЕНТ-ЛЮСИЯ LC LCA</option><option value="663">СЕН-МАРТЕН MF MAF</option><option value="666">СЕН-ПЬЕР И МИКЕЛОН PM SPM</option><option value="670">СЕНТ-ВИНСЕНТ И ГРЕНАДИНЫ VC VCT</option><option value="674">САН-МАРИНО Республика Сан-Марино SM SMR</option><option value="678">САН-ТОМЕ И ПРИНСИПИ Демократическая Республика Сан-Томе и Принсипи ST ST,P</option><option value="682">САУДОВСКАЯ АРАВИЯ Королевство Саудовская Аравия SA SAU</option><option value="686">СЕНЕГАЛ Республика Сенегал SN SEN</option><option value="688">СЕРБИЯ Республика Сербия RS SRB</option><option value="690">СЕЙШЕЛЫ Республика Сейшелы SC SYC</option><option value="694">СЬЕРРА-ЛЕОНЕ Республика Сьерра-Леоне SL SLE</option><option value="702">СИНГАПУР Республика Сингапур SG SGP</option><option value="703">СЛОВАКИЯ Словацкая Республика SK SVK</option><option value="704">ВЬЕТНАМ Социалистическая Республика Вьетнам VN VNM</option><option value="705">СЛОВЕНИЯ Республика Словения SI SVN</option><option value="706">СОМАЛИ Федеративная Республика Сомали SO SOM</option><option value="710">ЮЖНАЯ АФРИКА Южно-Африканская Республика ZA ZAF</option><option value="716">ЗИМБАБВЕ Республика Зимбабве ZW ZWE</option><option value="724">ИСПАНИЯ Королевство Испания ES ESP</option><option value="728">ЮЖНЫЙ СУДАН Республика Южный Судан SS SSD</option><option value="729">СУДАН Республика Судан SD SDN</option><option value="732">ЗАПАДНАЯ САХАРА EH ESH</option><option value="740">СУРИНАМ Республика Суринам SR SUR</option><option value="744">ШПИЦБЕРГЕН И ЯН МАЙЕН SJ SJM</option><option value="748">СВАЗИЛЕНД Королевство Свазиленд SZ SWZ</option><option value="752">ШВЕЦИЯ Королевство Швеция SE SWE</option><option value="756">ШВЕЙЦАРИЯ Швейцарская Конфедерация CH CHE</option><option value="760">СИРИЙСКАЯ АРАБСКАЯ РЕСПУБЛИКА SY SYR</option><option value="762">ТАДЖИКИСТАН Республика Таджикистан TJ TJK</option><option value="764">ТАИЛАНД Королевство Таиланд TH THA</option><option value="768">ТОГО Тоголезская Республика TG TGO</option><option value="772">ТОКЕЛАУ TK TKL</option><option value="776">ТОНГА Королевство Тонга TO TON</option><option value="780">ТРИНИДАД И ТОБАГО Республика Тринидад и Тобаго TT TTO</option><option value="784">ОБЪЕДИНЕННЫЕ АРАБСКИЕ ЭМИРАТЫ AE ARE</option><option value="788">ТУНИС Тунисская Республика TN TUN</option><option value="792">ТУРЦИЯ Турецкая Республика TR TUR</option><option value="795">ТУРКМЕНИЯ Туркменистан TM TKM</option><option value="796">ОСТРОВА ТЕРКС И КАЙКОС TC TCA</option><option value="798">ТУВАЛУ TV TUV</option><option value="800">УГАНДА Республика Уганда UG UGA</option><option value="804">УКРАИНА UA UKR</option><option value="807">РЕСПУБЛИКА МАКЕДОНИЯ MK MKD</option><option value="818">ЕГИПЕТ Арабская Республика Египет EG EGY</option><option value="826">СОЕДИНЕННОЕ КОРОЛЕВСТВО Соединенное Королевство Великобритании Северной, Ирландии GB GBR</option><option value="831">ГЕРНСИ GG GGY</option><option value="832">ДЖЕРСИ JE JEY</option><option value="833">ОСТРОВ МЭН IM IMN</option><option value="834">ТАНЗАНИЯ ОБЪЕДИНЕННАЯ РЕСПУБЛИКА Объединенная Республика Танзания TZ TZA</option><option value="840">СОЕДИНЕННЫЕ ШТАТЫ Соединенные Штаты Америки US USA</option><option value="850">ВИРГИНСКИЕ ОСТРОВА США Виргинские острова Соединенных Штатов VI VIR</option><option value="854">БУРКИНА-ФАСО BF BFA</option><option value="858">УРУГВАЙ Восточная Республика Уругвай UY URY</option><option value="860">УЗБЕКИСТАН Республика Узбекистан UZ UZB</option><option value="862">ВЕНЕСУЭЛА БОЛИВАРИАНСКАЯ РЕСПУБЛИКА Боливарианская Республика Венесуэла, VE VEN</option><option value="876">УОЛЛИС И ФУТУНА WF WLF</option><option value="882">САМОА Независимое Государство Самоа WS WSM</option><option value="887">ЙЕМЕН Йеменская Республика YE YEM</option><option value="894">ЗАМБИЯ Республика Замбия ZM ZMB</option><option value="895">АБХАЗИЯ Республика Абхазия AB ABH</option><option value="896">ЮЖНАЯ ОСЕТИЯ Республика Южная Осетия OS OST</option></select>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <div class="input-group">
+                                    <div class="input-group-addon">Документ, подтверждающий право проживания</div>
+                                    <select required="" class="form-control input-xxlarge">
+                                        <option value="1">Вид на жительство</option>
+                                        <option value="2">Разрешение на временное пребывание</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-5">
+                                <div class="input-group">
+                                    <div class="input-group-addon">Номер документа</div>
+                                    <input type="text" required="" class="form-control input-xxlarge" placeholder="115">
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-4">
+                                <div class="input-group">
+                                    <div class="input-group-addon">Дата выдачи</div>
+                                    <input type="text" required="" class="form-control input-xxlarge hasDatepicker" placeholder="11.09.2001">
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-8">
+                                <div class="input-group">
+                                    <div class="input-group-addon">Кем выдан</div>
+                                    <input type="text" required="" class="form-control input-xxlarge" placeholder="ТЕРРИТОРИАЛЬНЫЙ ПУНКТ...">
+                                </div>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <div class="input-group">
+                                    <div class="input-group-addon">Срок действия</div>
+                                    <input type="text" required="" class="form-control input-xxlarge hasDatepicker" placeholder="11.09.2019">
+                                </div>
+
+                            </div>
+                            <div class="form-group col-md-6">
+                                <div class="input-group">
+                                    <div class="input-group-addon">Фамилия(Латиница)</div>
+                                    <input type="text" required="" class="form-control input-xxlarge" placeholder="Фамилия">
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <div class="input-group">
+                                    <div class="input-group-addon">Имя(Латиница)</div>
+                                    <input type="text" required="" class="form-control input-xxlarge" placeholder="Имя">
+                                </div>
+                            </div>
+                            <div class="form-group col-md-5">
+                                <div class="input-group">
+                                    <div class="input-group-addon">Отчество(Латиница)</div>
+                                    <input type="text" class="form-control input-xxlarge" placeholder="Отчество">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <div class="input-group">
+                                <div class="input-group-addon">Серия паспорта</div>
+                                <input type="text" ng-model="formData.individuals[0].passportSerial" required="" class="form-control input-xxlarge" placeholder="12 34">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <div class="input-group">
+                                <div class="input-group-addon">Номер паспорта</div>
+                                <input type="text" ng-model="formData.individuals[0].passportNumber" required="" class="form-control input-xxlarge" placeholder="1234567">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <div class="input-group">
+                                <div class="input-group-addon">Дата выдачи</div>
+                                <input type="text" ng-model="formData.individuals[0].passportDate" required="" class="form-control input-xxlarge hasDatepicker" placeholder="11.09.2001">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-8">
+                            <div class="input-group">
+                                <div class="input-group-addon">Кем выдан</div>
+                                <input type="text" ng-model="formData.individuals[0].passportComment" required="" class="form-control input-xxlarge" placeholder="ОВД Октябрьского р-на г. Пушкино">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <div class="input-group">
+                                <div class="input-group-addon">Код подразделения</div>
+                                <input type="text" ng-model="formData.individuals[0].passportUnit" class="form-control input-xxlarge" placeholder="123-456">
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-show="tabsServiceObject.tabs[2].active">
+                        <h4 class="text-center">Иные сведения об индивидуальном предпринимателе</h4>
+                        <div class="form-group col-md-9">
+                            <div class="input-group">
+                                <div class="input-group-addon">Адрес регистрации</div>
+                                <input type="text" ng-model="formData.individuals[0].address.full" required="" class="form-control input-xxlarge suggestions-input" placeholder="г. Москва, ул. Пушкина, дом 205, кв. 5..." autocomplete="off" style="box-sizing: border-box; border: 2px solid rgb(232, 48, 19);"><div class="suggestions-wrapper"><span class="suggestions-addon" data-addon-type="spinner" style="left: -32px; top: 2px; height: 30px; width: 30px;"></span><ul class="suggestions-constraints" style="left: -14px; top: 17px;"></ul><div class="suggestions-suggestions" style="position: absolute; display: none; left: -28px; top: 32px; width: 28px;"></div></div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <div class="input-group">
+                                <div class="input-group-addon">Индекс</div>
+                                <input required="" ng-model="formData.individuals[0].address.index" type="text" class="form-control input-xxlarge" placeholder="143000">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <div class="input-group">
+                                <div class="input-group-addon">Тип области</div>
+                                <input type="text" ng-model="formData.individuals[0].address.area_type" class="form-control input-xxlarge" placeholder="р-н">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <div class="input-group">
+                                <div class="input-group-addon">Область</div>
+                                <input type="text" ng-model="formData.individuals[0].address.area" class="form-control input-xxlarge" placeholder="Зарайский">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <div class="input-group">
+                                <div class="input-group-addon">Тип поселения</div>
+                                <input type="text" ng-model="formData.individuals[0].address.settlement_type" class="form-control input-xxlarge" placeholder="п">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <div class="input-group">
+                                <div class="input-group-addon">Название поселения</div>
+                                <input type="text" ng-model="formData.individuals[0].address.settlement" class="form-control input-xxlarge" placeholder="Толстопальцево">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <div class="input-group">
+                                <div class="input-group-addon">Тип города</div>
+                                <input type="text" ng-model="formData.individuals[0].address.city_type" class="form-control input-xxlarge" placeholder="г">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <div class="input-group">
+                                <div class="input-group-addon">Город</div>
+                                <input type="text" ng-model="formData.individuals[0].address.city" class="form-control input-xxlarge" placeholder="Москва">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <div class="input-group">
+                                <div class="input-group-addon">Тип улицы</div>
+                                <input type="text" ng-model="formData.individuals[0].address.street_type" class="form-control input-xxlarge" placeholder="ул">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <div class="input-group">
+                                <div class="input-group-addon">Улица</div>
+                                <input type="text" ng-model="formData.individuals[0].address.street" class="form-control input-xxlarge" placeholder="Пушкина">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <div class="input-group">
+                                <div class="input-group-addon">Тип дома(полн.)</div>
+                                <input type="text" ng-model="formData.individuals[0].address.house_type_full" class="form-control input-xxlarge" placeholder="дом">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <div class="input-group">
+                                <div class="input-group-addon">Номер дома</div>
+                                <input type="text" ng-model="formData.individuals[0].address.house" class="form-control input-xxlarge" placeholder="31">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <div class="input-group">
+                                <div class="input-group-addon">Тип корпуса(полн.)</div>
+                                <input type="text" ng-model="formData.individuals[0].address.block_type_full" class="form-control input-xxlarge" placeholder="корпус">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <div class="input-group">
+                                <div class="input-group-addon">Номер корпуса</div>
+                                <input type="text" ng-model="formData.individuals[0].address.block" class="form-control input-xxlarge" placeholder="4">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <div class="input-group">
+                                <div class="input-group-addon">Тип помещения(полн.)</div>
+                                <input type="text" ng-model="formData.individuals[0].address.flat_type_full" class="form-control input-xxlarge" placeholder="квартира">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <div class="input-group">
+                                <div class="input-group-addon">Номер помещения</div>
+                                <input type="text" ng-model="formData.individuals[0].address.flat" class="form-control input-xxlarge" placeholder="180">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <div class="input-group">
+                                <div class="input-group-addon">Налоговый орган(код)</div>
+                                <input type="text" ng-model="formData.individuals[0].address.tax_office" class="form-control input-xxlarge" placeholder="7707">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <div class="input-group">
+                                <div class="input-group-addon">СНИЛС</div>
+                                <input type="text" ng-model="formData.individuals[0].snils" required="" class="form-control input-xxlarge" placeholder="СНИЛС">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <div class="input-group">
+                                <div class="input-group-addon">ИНН</div>
+                                <input type="text" ng-model="formData.individuals[0].inn" class="form-control input-xxlarge" placeholder="например, 5036032527">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#findoutinn">Узнать ИНН</button>
+                        </div>
+                    </div>
+                    <div ng-show="tabsServiceObject.tabs[3].active">
+                        <div class="form-group col-md-12">
+                            <div class="col-md-12 text-center"><h3>Выберите налоговый режим</h3></div>
+                            <div class="form-group col-md-12"><div class="input-group" style="height:135px;">
+                                <div class="input-group-addon" style="vertical-align:center; width:15%;"><input type="radio" checked="" required="" ng-model="formData.tax_type" name="tax_type" value="1"> УСН 6%</div>
+                                <div class="form-control input-xxlarge radiobut" style="height:135px;vertical-align:center;">
+                                    <div class="col-md-12 text-left">
+                                        <p style="margin-left:5%;">ООО (или ИП) уплачивает 6% от общей величины доходов. Если ООО (или ИП) по итогам периода не оказалось в убытке, полученная сумма уменьшается на страховые взносы и больничные (выданные за счет организации). Причем уменьшение не должно превысить 50% от суммы подлежащего уплате налога, если есть наемные работники, если наемных работников нет — 100% от суммы подлежащего уплате налога.</p></div>
+
+                                </div>
+                            </div></div>
+
+                            <div class="form-group col-md-12"><div class="input-group" style="height:100px;">
+                                <div class="input-group-addon" style="vertical-align:center; width:15%;"><input type="radio" required="" ng-model="formData.tax_type" name="tax_type" value="2"> УСН 15%</div>
+                                <div class="form-control input-xxlarge radiobut" style="height:100px;vertical-align:center;">
+                                    <div class="col-md-12 text-left">
+                                        <p style="margin-left:5%;">ООО (или ИП) уплачивает 15%, если объектом налогообложения являются доходы, уменьшенные на величину расходов. Однако законами субъектов Российской Федерации могут быть установлены дифференцированные налоговые ставки в пределах от 5 до 15% в зависимости от категорий налогоплательщиков.</p></div>
+                                </div>
+                            </div></div>
+
+                            <div class="form-group col-md-12"><div class="input-group" style="height:135px;">
+                                <div class="input-group-addon" style="vertical-align:center; width:15%;"><input type="radio" required="" ng-model="formData.tax_type" name="tax_type" value="3"> ОСНО</div>
+                                <div class="form-control input-xxlarge radiobut" style="height:135px;vertical-align:center; ">
+                                    <div class="col-md-12 text-left"><p style="margin-left:5%;">Базовая система налогообложения, применяемая «по умолчанию». Предусматривает уплату всех определенных действующим законодательством налогов и строгое документирование деятельности и отчетности. В то же время, несмотря на большее, чем при УСН и ЕСХН налоговое бремя и объем документооборота, предоставляет несоизмеримо большие возможности для бизнеса.</p></div>
+                                </div>
+                            </div></div>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <div class="input-group">
+                                <div class="input-group-addon">Вариант получения документов</div>
+                                <select required="" ng-model="formData.prVisBum" class="form-control input-xxlarge">
+                                    <option value="1">Забрать документы лично</option>
+                                    <option value="2">Получить документы по доверенности</option>
+                                    <option value="3">Получить документы по почте России</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-show="tabsServiceObject.tabs[4].active">
+                        <div class="col-md-12 form-group">
+                            <table class="text-center table table-bordered table-hover">
+                                <tbody class="okvtable">
+                                <tr>
+                                    <th style="width:10%">
+                                        Сделать основным
+                                    </th>
+                                    <th style="width:10%">
+                                        Код
+                                    </th>
+                                    <th style="width:70%">
+                                        Наименование
+                                    </th>
+                                    <th style="width:10%">
+                                        Убрать из списка
+                                    </th>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-md-2 form-group">
+                            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#okvedpicker">Выбрать ОКВЭД</button>
+                        </div>
+                    </div>
+                    <div ng-show="tabsServiceObject.tabs[5].active">
+                        <div class="col-md-12 text-center">
+                            <h4>Почти готово!</h4>
+                            Все что вам осталось - это распечатать и подписать заявление на изготовление вашей Электронно цифровой подписи для дистанционной подачи документов в налоговую без вашего личного визита и нотариуса . ( <a data-toggle="modal" data-target="#ecpabout">Что такое Электронно - цифровая подпись?</a> )<br>
+                        </div>
+                        <div class="col-md-12 text-center">
+                            <div class="ecp-box">
+                                <div class="col-md-7"><h3>Заявление ЭЦП</h3></div>
+                                <div class="col-md-5"><div id="ecp"><a download="Заявление ЭЦП.pdf">Скачать</a>&nbsp;|&nbsp;<a target="_blank">Печать</a></div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-show="tabsServiceObject.tabs[6].active" id="file-uploader">
+                        <div class="col-md-12 col-md-12">
+                            <div class="col-md-5 form-group cloud">
+                            </div>
+
+                            <div class="col-md-7 form-group">
+                                <div id="drop-area-div">
+                                    <input type="file" name="files[]" multiple="multiple" title="Нажмите для добавления файлов">
+                                    ВЫБЕРИТЕ ФАЙЛ ИЛИ ПЕРЕНЕСИТЕ ЕГО СЮДА
+                                    <br>
+                                    <div id="c-files-drop">
+                                        <div class="d-check-list" data-bind="foreach: categories">
+                                            <div class="d-category-name" data-bind="style: { color: obtained() ? '#25b091' : '#858585' }" style="color: rgb(133, 133, 133);">
+                                                <span data-bind="text: obtained() ? '✓ ' : '› '">› </span>
+                                                <span data-bind="text: name">Паспорт</span>
+                                            </div>
+
+                                            <div class="d-category-name" data-bind="style: { color: obtained() ? '#25b091' : '#858585' }" style="color: rgb(133, 133, 133);">
+                                                <span data-bind="text: obtained() ? '✓ ' : '› '">› </span>
+                                                <span data-bind="text: name">ИНН</span>
+                                            </div>
+
+                                            <div class="d-category-name" data-bind="style: { color: obtained() ? '#25b091' : '#858585' }" style="color: rgb(133, 133, 133);">
+                                                <span data-bind="text: obtained() ? '✓ ' : '› '">› </span>
+                                                <span data-bind="text: name">СНИЛС</span>
+                                            </div>
+
+                                            <div class="d-category-name" data-bind="style: { color: obtained() ? '#25b091' : '#858585' }" style="color: rgb(133, 133, 133);">
+                                                <span data-bind="text: obtained() ? '✓ ' : '› '">› </span>
+                                                <span data-bind="text: name">Заявление ЭЦП</span>
+                                            </div>
+
+                                            <div class="d-category-name" data-bind="style: { color: obtained() ? '#25b091' : '#858585' }" style="color: rgb(133, 133, 133);">
+                                                <span data-bind="text: obtained() ? '✓ ' : '› '">› </span>
+                                                <span data-bind="text: name">Иной документ</span>
+                                            </div>
+
+                                            <div class="d-category-name" data-bind="style: { color: obtained() ? '#25b091' : '#858585' }" style="color: rgb(133, 133, 133);">
+                                                <span data-bind="text: obtained() ? '✓ ' : '› '">› </span>
+                                                <span data-bind="text: name">Госпошлина</span>
+                                            </div>
+
+                                            <div class="d-category-name" data-bind="style: { color: obtained() ? '#25b091' : '#858585' }" style="color: rgb(133, 133, 133);">
+                                                <span data-bind="text: obtained() ? '✓ ' : '› '">› </span>
+                                                <span data-bind="text: name">РВП</span>
+                                            </div>
+
+                                            <div class="d-category-name" data-bind="style: { color: obtained() ? '#25b091' : '#858585' }" style="color: rgb(133, 133, 133);">
+                                                <span data-bind="text: obtained() ? '✓ ' : '› '">› </span>
+                                                <span data-bind="text: name">Нотариальный перевод</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="c-files" class="d-file-container">
+                                <table class="d-files-container">
+                                    <tbody data-bind="template: { name: 'file-template', foreach: items }"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-show="tabsServiceObject.tabs[7].active">
+                        <div class="col-md-12 col-md-12 text-center">
+                            <h4>Ну вот и все! После нажатия кнопки "Отправить заявку" внизу данной страницы, Ваша заявка появится в панели "Мои заявки", где Вам будет необходимо произвести оплату за регистрацию Вашей компании.</h4>
+                            <h4>После оплаты, запустится процесс по регистрации. Вы сможете отслеживать статус готовности Вашей компании в меню "Мои заявки".</h4>
+                        </div>
+                        <div class="col-md-12 submit text-center"><button class="btn btn-primary center" type="button" onclick="sendOrder()">Отправить заявку</button></div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-md-6 text-left">
+                    <button ng-show="!tabsServiceObject.tabs[0].active" type="button" class="btn btn-primary btnch" ng-click="prevTab()">Назад</button>
+                </div>
+                <div class="col-md-6 col-md-6 text-right">
+                    <button ng-show="!tabsServiceObject.tabs[tabsServiceObject.tabs.length - 1].active" type="button" data-toggle="tooltip" title="Для продолжения загрузите документы и выберите их категории." class="btn btn-primary" ng-click="nextTab()" data-original-title="Для продолжения примите соглашение о конфиденциальности.">Вперед</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <ngInclude ng-include="'/views/includes/footer.html'"></ngInclude>
+</div>

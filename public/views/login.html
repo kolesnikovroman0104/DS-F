@@ -1,0 +1,41 @@
+<a class="logo logo-auth" href="https://lk.delsfera.org"><img src="/images/logo.png" alt=""></a>
+<div class="col-md-6 auth-left-side no-padding">
+    <div class="filter"></div>
+</div>
+<div class="col-md-6 auth-block" ng-controller="LoginCtrl">
+    <div class="col-md-12 auth-inner">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="col-md-12 margin-bottom">
+                <h2>Войти в личный кабинет</h2>
+            </div>
+            <div class="col-md-12">
+                <ul>
+                    <li ng-repeat="error in errors"><span class="label label-danger">{{ error }}</span></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                Используя свой логин и пароль
+            </div>
+            <div class="col-md-8">
+                <div class="col-md-8 input-group margin-bottom">
+                    <input class="form-control" ng-model="loginData.email" placeholder="Email/Логин" required="" autofocus="" type="text">
+                </div>
+                <div class="col-md-8 input-group margin-bottom">
+                    <input class="form-control" ng-model="loginData.password" placeholder="Пароль" required="" type="password">
+                </div>
+                <button class="btn btn-primary auth-btn margin-bottom" ng-click="login()">Войти</button>
+                <p class="subtext">Забыли пароль? <a ng-href="./#!/forgot">Восстановить!</a></p>
+            </div>
+        </div>
+        <div class="border-top col-md-12 margin-top margin-bottom">
+        </div>
+        <div class="col-md-10 col-md-offset-1">
+            <div class="col-md-4 margin-top">
+                Я тут в первый раз
+            </div>
+            <div class="col-md-8 margin-top">
+                <a ng-href="./#!/registration"><button class="btn btn-primary auth-btn">Зарегистрироваться</button></a>
+            </div>
+        </div>
+    </div>
+</div>

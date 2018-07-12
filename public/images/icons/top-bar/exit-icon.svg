@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="21px" height="20px" viewBox="0 0 21 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>logout</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-0.7%" y="-1.0%" width="101.1%" height="101.9%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.097826087 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="мои-заявки" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-1366.000000, -31.000000)" fill-opacity="0.5">
+        <g id="menubar" filter="url(#filter-1)" transform="translate(-1.000000, -5.000000)" fill="#000000" fill-rule="nonzero">
+            <g id="bar">
+                <g id="logout-btn" transform="translate(0.000000, 0.666667)">
+                    <g id="logout" transform="translate(1378.000000, 45.666667) scale(-1, 1) translate(-1378.000000, -45.666667) translate(1371.000000, 39.888889)">
+                        <polygon id="Shape" points="5.72727273 7.7037037 5.72727273 11.5555556 14 11.5555556 14 0 5.72727273 0 5.72727273 3.85185185 7 3.85185185 7 1.28395062 12.7272727 1.28395062 12.7272727 10.2716049 7 10.2716049 7 7.7037037"></polygon>
+                        <rect id="Rectangle-path" transform="translate(7.000000, 5.777778) scale(-1, 1) rotate(-180.000000) translate(-7.000000, -5.777778) " x="2.54545455" y="5.13580247" width="8.90909091" height="1.28395062"></rect>
+                        <polygon id="Shape" points="3.18181818 3.20987654 0 5.77777778 3.18181818 8.34567901"></polygon>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
