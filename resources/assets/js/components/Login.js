@@ -32,7 +32,18 @@ class Login extends Component {
             .then(response => {
                 this.setState({err: false});
                 localStorage.setItem('isLogin', true);
-                this.props.history.push("/");
+                axios.get('/api/user/info', {}, {
+                    headers: {
+                        'Content-Type': 'application/x.ds.v1+json'
+                    }
+                })
+                    .then(response => {
+                        localStorage.setItem('user', JSON.stringify(response));
+                        this.props.history.push("/");
+                    })
+                    .catch(error => {
+                        console.log(error.response.data.errors);
+                    });
             })
             .catch(error => {
                 this.email = "";
